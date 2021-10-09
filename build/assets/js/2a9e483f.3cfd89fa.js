@@ -1,0 +1,1 @@
+(self.webpackChunkdapengdouyu=self.webpackChunkdapengdouyu||[]).push([[4549],{8132:function(a){"use strict";a.exports=JSON.parse('{"allTagsPath":"/tags","slug":"\u4e0b\u8f7d","name":"\u4e0b\u8f7d","count":1,"permalink":"/tags/\u4e0b\u8f7d"}')}}]);
