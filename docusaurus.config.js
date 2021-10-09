@@ -3,15 +3,16 @@ const math = require("remark-math");
 const katex = require("rehype-katex");
 
 module.exports = {
+  onBrokenLinks:'ignore',
   title: "Dapeng的博客",
   tagline: "记录美好生活",
   titleDelimiter: "-",
-  url: "https://zhangyapeng.gitee.io",
+  url: "https://dapengdouyu.github.io",
   baseUrl: "/",
   favicon: "img/favicon.ico",
   themes: ["@docusaurus/theme-live-codeblock"],
-  organizationName: "dapeng", // Usually your GitHub org/user name.
-  projectName: "blog", // Usually your repo name.
+  organizationName: "dapengdouyu", // Usually your GitHub org/user name.
+  projectName: "docs", // Usually your repo name.
   stylesheets: [
     {
       rel: "preconnect",
@@ -86,7 +87,7 @@ module.exports = {
           ],
         },
         {
-          href: "https://gitee.com/zhangyapeng",
+          href: "https://github.com/dapengdouyu",
           label: "gitee",
           position: "right",
         },
@@ -128,7 +129,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://gitee.com/zhangyapeng/doc/tree/master/",
+          editUrl: "https://github.com/dapengdouyu/docs/tree/master/",
           remarkPlugins: [math],
           rehypePlugins: [katex],
           showLastUpdateTime: true,

@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>Dapeng's blog</title>
-        <link>https://zhangyapeng.gitee.io/</link>
+        <link>https://dapengdouyu.github.io/</link>
         <description>Dapeng的博客 Blog</description>
         <lastBuildDate>Sat, 09 Oct 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,14 +10,14 @@
         <copyright>Copyright © 2021 大鹏 (张亚鹏) Built with Docusaurus.</copyright>
         <item>
             <title><![CDATA[如何使 pdf 文件在浏览器里面直接下载而不是打开]]></title>
-            <link>https://zhangyapeng.gitee.io/pdf</link>
+            <link>https://dapengdouyu.github.io/pdf</link>
             <guid>pdf</guid>
             <pubDate>Sat, 09 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[如何使 pdf 文件在浏览器里面直接下载而不是打开]]></description>
         </item>
         <item>
             <title><![CDATA[Redux 原理分析]]></title>
-            <link>https://zhangyapeng.gitee.io/redux-analysis</link>
+            <link>https://dapengdouyu.github.io/redux-analysis</link>
             <guid>redux-analysis</guid>
             <pubDate>Thu, 19 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Redux 原理分析]]></description>
