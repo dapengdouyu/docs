@@ -1,1 +1,0 @@
-(self.webpackChunkdapengdouyu=self.webpackChunkdapengdouyu||[]).push([[8191],{2992:function(a){"use strict";a.exports=JSON.parse('{"allTagsPath":"/tags","slug":"java-script","name":"javascript","count":2,"permalink":"/tags/java-script"}')}}]);

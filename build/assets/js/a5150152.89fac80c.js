@@ -1,1 +1,0 @@
-(self.webpackChunkdapengdouyu=self.webpackChunkdapengdouyu||[]).push([[4359],{6598:function(e){"use strict";e.exports=JSON.parse('{"allTagsPath":"/tags","slug":"source-code","name":"sourcecode","count":1,"permalink":"/tags/source-code"}')}}]);

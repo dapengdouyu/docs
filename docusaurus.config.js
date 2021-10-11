@@ -81,8 +81,8 @@ module.exports = {
           position: "right",
           items: [
             {
-              label: "babel",
-              to: "docs/books/babel/index",
+              label: "Babel 插件通关秘籍",
+              to: "docs/books/Babel 插件通关秘籍/index",
             },
           ],
         },
