@@ -7,13 +7,13 @@
 
 const fs = require("fs-extra");
 const path = require("path");
-let program = null;
+let program = {};
 const dirs = fs
   .readdirSync(path.join(__dirname, "./docs"))
   .filter((dir) => !dir.startsWith("."));
 for (let dir of dirs) {
   const basePath = path.join(__dirname, "./docs", dir);
-  program = fs.readdirSync(basePath).reduce((memo, next) => {
+  program[dir] = fs.readdirSync(basePath).reduce((memo, next) => {
     const contents = fs
       .readdirSync(path.join(basePath, next))
       .map((name) => name.replace(/^(.*)\.(.+)$/g, "$1"))
@@ -26,12 +26,6 @@ for (let dir of dirs) {
     );
     return memo;
   }, {});
-}
-
-module.exports = {
-  // samples: {
-  //   // Features: ["mdx"],
-  //   "React 基础示例": [],
-  // },
-  program,
 };
+// https://github.com/Cansiny0320/blog/blob/main/sidebars.js
+module.exports = program

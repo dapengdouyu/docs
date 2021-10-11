@@ -3,7 +3,7 @@ const math = require("remark-math");
 const katex = require("rehype-katex");
 
 module.exports = {
-  onBrokenLinks:'ignore',
+   onBrokenLinks:'ignore',
   title: "Dapeng的博客",
   tagline: "记录美好生活",
   titleDelimiter: "-",
@@ -88,7 +88,7 @@ module.exports = {
         },
         {
           href: "https://github.com/dapengdouyu",
-          label: "gitee",
+          label: "github",
           position: "right",
         },
       ],

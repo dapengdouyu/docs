@@ -223,16 +223,16 @@ function SocialLinks({ animatedProps, ...props }) {
       {/* <a href='https://space.bilibili.com/4377132'>
         <BilibiliIcon />
       </a> */}
-      <a href='https://github.com/Cansiny0320'>
+      <a href='https://github.com/dapengdouyu'>
         <FontAwesomeIcon icon={faGithub} size='lg' />
       </a>
-      <a href='https://juejin.cn/user/4371313964620712'>
+      {/* <a href='https://juejin.cn/user/4371313964620712'>
         <JuejinIcon />
-      </a>
-      <a href='https://www.zhihu.com/people/wang-jia-xin-bu-hui-nbcs'>
+      </a> */}
+      {/* <a href='https://www.zhihu.com/people/wang-jia-xin-bu-hui-nbcs'>
         <FontAwesomeIcon icon={faZhihu} size='lg' />
-      </a>
-      <a href='mailto:cansiny1220@gmail.com'>
+      </a> */}
+      <a href='mailto:dapenglalala@gmail.com'>
         <FontAwesomeIcon icon={faGoogle} size='lg' />
       </a>
 
