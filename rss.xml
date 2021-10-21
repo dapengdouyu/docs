@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Dapeng's blog</title>
         <link>https://dapengdouyu.github.io/</link>
@@ -14,6 +14,53 @@
             <guid>pdf</guid>
             <pubDate>Sat, 09 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[如何使 pdf 文件在浏览器里面直接下载而不是打开]]></description>
+            <content:encoded><![CDATA[<h2>前言</h2><p>在做需求过程中我们大概率会遇到在浏览器中下载文件的需求，如果仅仅是这个要求的话很简单，有如下两种解决方式。</p><p>第一种是通过 <code>window </code>对象的 <code>open</code> 方法进行操作，将文件 <code>url</code>直接在浏览器中打开即可下载。</p><pre><code class="language-js">window.open(&quot;url&quot;);
+</code></pre><p>第二种是通过 <code>a</code> 标签，设置 <code>href</code> 为 <code>url</code> 值，点击 <code>a</code> 标签即可完成下载。</p><pre><code class="language-js">&lt;a href=&quot;url&quot; download=&quot;文件名&quot;&gt;&lt;/a&gt;
+</code></pre><p>但是上面两种文件下载方式都会存在一个问题，就是 pdf 文件会直接在浏览器中打开而不是直接下载，效果如下：
+<img src="/img/blog/1.gif" alt="预览"/></p><h2>解决方案</h2><p>这种需求的解决方式就是将 PDF 文件的 <code>MIME type</code> 改为 <code>application/octet-stream</code> 并加入 <code>Content-Disposition:attachment header</code>，原本的 pdf 文件 <code>MIME type </code>为 <code>application/pdf</code>，浏览器识别到这个 <code>type</code> 之后会自动在浏览器打开，所以说我们在这里修改 <code>type</code> 即可。</p><p>修改的方法有两种，一种是在<code>后端</code>进行修改，上传文件或者返回文件的时候进行操作，但是绝大多数情况下文件都是存储到 <code>cdn </code>服务器中的，后端也不方便对其进行操作，这个时候就需要前端来修改了。</p><p>处理代码如下：</p><pre><code class="language-js">/**
+ * @deprecated 下载文件
+ * @param {string} url
+ * @param {string} filename
+ */
+handleFileDownload = (url, filename) =&gt; {
+  // 创建 a 标签
+  let a = document.createElement(&quot;a&quot;);
+  a.href = url;
+  a.download = filename;
+  a.click();
+};
+
+/**
+ * @deprecated 处理 pdf url，使其不在浏览器打开
+ * @param {string} url
+ */
+handlePdfLink = (url, filename) =&gt; {
+  fetch(url, {
+    method: &quot;get&quot;,
+    responseType: &quot;arraybuffer&quot;,
+  })
+    .then(function (res) {
+      if (res.status !== 200) {
+        return res.json();
+      }
+      return res.arrayBuffer();
+    })
+    .then((blobRes) =&gt; {
+      // 生成 Blob 对象，设置 type 等信息
+      const e = new Blob([blobRes], {
+        type: &quot;application/octet-stream&quot;,
+        &quot;Content-Disposition&quot;: &quot;attachment&quot;,
+      });
+      // 将 Blob 对象转为 url
+      const link = window.URL.createObjectURL(e);
+      handleFileDownload(link, filename);
+    })
+    .catch((err) =&gt; {
+      console.error(err);
+    });
+};
+</code></pre><p>这样修改修改代码的话就可以实现在浏览器中下载。效果如下
+<img src="/img/blog/2.gif" alt="预览"/></p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Redux 原理分析]]></title>
@@ -21,6 +68,106 @@
             <guid>redux-analysis</guid>
             <pubDate>Thu, 19 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Redux 原理分析]]></description>
+            <content:encoded><![CDATA[<h2>Redux 的核心思想</h2><p>Redux 是 JavaScript 状态容器，能提供可预测化的状态管理。</p><p>它认为：</p><ul><li>Web 应用是一个状态机，视图与状态是一一对应的。</li><li>所有的状态，保存在一个对象里面。</li></ul><p>我们先来看看 “状态容器”、“视图与状态一一对应” 以及 “一个对象” 这三个概念的具体体现。</p><p><img src="https://cansiny.oss-cn-shanghai.aliyuncs.com/images/1629290427369.png"/></p><p>如上图，Store 是 Redux 中的状态容器，它里面存储着所有的状态数据，每个状态都跟一个视图一一对应。</p><p>Redux 也规定，一个 State 对应一个 View。只要 State 相同，View 就相同，知道了 State，就知道 View 是什么样，反之亦然。</p><p>比如，当前页面分三种状态：loading（加载中）、success（加载成功）或者 error（加载失败），那么这三个就分别唯一对应着一种视图。</p><p>现在我们对 “状态容器” 以及 “视图与状态一一对应” 有所了解了，那么 Redux 是怎么实现可预测化的呢？我们再来看下 Redux 的工作流程。</p><p><img src="https://cansiny.oss-cn-shanghai.aliyuncs.com/images/1629355306002.png"/></p><p>首先，我们看下几个核心概念：</p><ul><li>Store：保存数据的地方，你可以把它看成一个容器，整个应用只能有一个 Store。</li><li>State：Store 对象包含所有数据，如果想得到某个时点的数据，就要对 Store 生成快照，这种时点的数据集合，就叫做 State。</li><li>Action：State 的变化，会导致 View 的变化。但是，用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了。</li><li>Action Creator：View 要发送多少种消息，就会有多少种 Action。如果都手写，会很麻烦，所以我们定义一个函数来生成 Action，这个函数就叫 Action Creator。</li><li>Reducer：Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。</li><li>dispatch：是 View 发出 Action 的唯一方法。</li><li>subscribe：订阅数据变化。一旦 state 发生改变，执行回调。</li></ul><p>然后我们过下整个工作流程：</p><ol><li>首先，用户（通过 View）发出 Action，发出方式就用到了 dispatch 方法。</li><li>然后，Store 自动调用 Reducer，并且传入两个参数：当前 State 和收到的 Action，Reducer 会返回新的 State</li><li>State 一旦有变化，Store 就会调用监听函数，来更新 View。</li></ol><p>到这儿为止，一次用户交互流程结束。可以看到，在整个流程中数据都是单向流动的，这种方式保证了流程的清晰。</p><h2>源码分析</h2><p>源码分析使用简化版代码，点击查看<a href="https://github.com/Cansiny0320/mini-redux">完整代码</a></p><h3>createStore</h3><p>createStore 是 redux 的主流程</p><pre><code class="language-js">export default function createStore(reducer, preloadedState, enhancer) {
+  // 中间件
+  if (enhancer) {
+    return enhancer(createStore)(reducer, preloadedState)
+  }
+  let currentReducer = reducer
+  let state = preloadedState
+  let listeners = []
+
+  function getState() {
+    return state
+  }
+
+  function subscribe(listener) {
+    let isSubscribed = true
+    listeners.push(listener)
+    return function unsubscribe() {
+      if (!isSubscribed) return
+      isSubscribed = false
+      listeners.splice(index, 1)
+    }
+  }
+
+  function dispatch(action) {
+    state = currentReducer(state, action)
+    listeners.forEach(listener =&gt; listener())
+    return action
+  }
+
+  function replaceReducer(nextReducer) {
+    currentReducer = nextReducer
+    dispatch({ type: Symbol(&#x27;REPLACE&#x27;) })
+    return store
+  }
+  // 在没有传 preloadedState 的时候，初始化 state
+  dispatch({ type: Symbol(&#x27;INIT&#x27;) })
+
+  return {
+    dispatch,
+    subscribe,
+    getState,
+    replaceReducer,
+  }
+}
+</code></pre><p>核心的代码是这些</p><pre><code class="language-js">let currentReducer = reducer
+let state = preloadedState
+let listeners = []
+
+function subscribe(listener) {
+  let isSubscribed = true
+  listeners.push(listener)
+  return function unsubscribe() {
+    // 防止重复调用
+    if (!isSubscribed) return
+    isSubscribed = false
+    listeners.splice(index, 1)
+  }
+}
+
+function dispatch(action) {
+  state = currentReducer(state, action)
+  listeners.forEach(listener =&gt; listener())
+  return action
+}
+</code></pre><p>可以看到，<code>subscribe</code>函数将我们传入的<code>listener</code>加入<code>listeners</code>数组，然后在 dispatch<code>的时候执行每个</code>listener`，这样就达到了更新订阅的目的</p><p><code>subscribe</code>函数还会返回一个<code>unsubscribe</code>函数，用来取消订阅的<code>listener</code></p><h3>combineReducers</h3><p>combineReducers 是用来合并多个 reducer 的函数</p><pre><code class="language-js">export default function combineReducers(reducers) {
+  const reducerKeys = Object.keys(reducers)
+  return function combination(state, action) {
+    const nextState = {}
+    reducerKeys.forEach(key =&gt; {
+      const reducer = reducers[key]
+      // 之前的 key 的 state
+      const previousStateForKey = state[key]
+      // 执行 分 reducer，获得新的 state
+      const nextStateForKey = reducer(previousStateForKey, action)
+      nextState[key] = nextStateForKey
+    })
+    return nextState
+  }
+}
+</code></pre><p>其实就是根据不同的<code>key</code>，拿到对应的<code>reducer</code>和<code>state</code>再进行更新</p><h3>applyMiddleware</h3><p>applyMiddleware 是实现中间件支持的函数</p><pre><code class="language-js">//  把 compose(f, g, h) 转换成 (...args) =&gt; f(g(h(...args)))
+const compose = (...funcs) =&gt;
+  funcs.reduce(
+    (a, b) =&gt;
+      (...args) =&gt;
+        a(b(...args))
+  )
+
+export default function applyMiddleware(...middlewares) {
+  return createStore =&gt; (reducer, preloadedState) =&gt; {
+    const store = createStore(reducer, preloadedState)
+    const middlewareAPI = {
+      getState: store.getState,
+    }
+    const chain = middlewares.map(middleware =&gt; middleware(middlewareAPI))
+    const dispatch = compose(...chain)(store.dispatch)
+    store.dispatch = dispatch
+    return store
+  }
+}
+</code></pre><p>较为关键的是这一步<code>const dispatch = compose(...chain)(store.dispatch)</code>，将中间件进行组合</p><p>到现在为止我们已经实现了 redux 的主要功能，还有一些小细节就不继续深入了，现在我们再来看看 redux 的工作流程，是不是清晰多啦？</p><p><img src="https://cansiny.oss-cn-shanghai.aliyuncs.com/images/1629355306002.png"/></p><h2>参考文章</h2><p><a href="https://tech.meituan.com/2017/07/14/redux-design-code.html">Redux 从设计到源码</a></p><p><a href="https://github.com/brickspert/blog/issues/22">完全理解 redux</a></p>]]></content:encoded>
         </item>
     </channel>
 </rss>
