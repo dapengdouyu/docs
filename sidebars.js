@@ -27,6 +27,6 @@ for (let dir of dirs) {
     return memo;
   }, {});
 };
-console.log(program)
+// console.log(program)
 // https://github.com/Cansiny0320/blog/blob/main/sidebars.js
 module.exports = program

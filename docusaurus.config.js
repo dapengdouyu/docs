@@ -114,7 +114,7 @@ module.exports = {
         //   ],
         // },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} dapeng (张亚鹏) Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} dapeng (张亚鹏) 京ICP备20028300号`,
     },
     prism: {
       theme: require("prism-react-renderer/themes/github"),
@@ -140,7 +140,7 @@ module.exports = {
           blogSidebarTitle: "近期文章",
           feedOptions: {
             type: "rss",
-            title: "Dapeng's blog",
+            title: "Dapeng's blog",  
             copyright: `Copyright © ${new Date().getFullYear()} 大鹏 (张亚鹏) Built with Docusaurus.`,
           },
         },
