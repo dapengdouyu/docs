@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "test": "promises-aplus-tests program/index.js",
     "start": "docusaurus start --host 0.0.0.0",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
@@ -42,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
   }
 }
