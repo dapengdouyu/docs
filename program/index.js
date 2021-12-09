@@ -124,13 +124,13 @@ Eat supper
 //             resolvePromise(y, p, resolve, reject);
 //           },
 //           (err) => {
-           
+
 //             reject(err);
 //           }
 //         );
 //       } else {
 //         //普通值
-     
+
 //         resolve(x);
 //       }
 //     } catch (error) {
@@ -139,7 +139,7 @@ Eat supper
 //       reject(error);
 //     }
 //   } else {
-   
+
 //     // 普通值
 //     resolve(x);
 //   }
@@ -240,10 +240,29 @@ Eat supper
 
 // 提取中域名'http://www.baidu.com/a'
 
+function match(url) {
+  return url.match(/https?\:\/\/([^/]+)/)[1];
+}
 
-  function match(url){
-    return url.match(/https?\:\/\/([^/]+)/)[1]
-  }
-
-  console.log(match('https://www.baidu.com/sda/sada'));
+console.log(match("https://www.baidu.com/sda/sada"));
 // match('http://www.baidu.com/a')
+
+const getJSON = function (url) {
+  return new Promise((resolve, reject) => {
+    // 实例化xhr
+    const xhr = new XMLHttpRequest();
+
+    // xhrReq.open(method, url, async, user, password);
+    xhr.open("GET", url, true);
+    xhr.setRequestHeader("content-type", "application/json");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status === 200 || xhr.status === 304) {
+        resolve(xhr.responseText);
+      } else {
+        reject(new Error(xhr.responseText));
+      }
+    };
+    xhr.send(null);
+  });
+};
