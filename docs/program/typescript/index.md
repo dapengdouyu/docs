@@ -49,7 +49,8 @@ type Partial<T> = {
 ```
 
 > `TypeScript 4.1` 允许使用 `as` 字句对键名重新映射。
-```ts
+
+```typescript
 // 过滤掉传入类型的kind属性
 type RemoveKindField<T> = {
     [K in keyof T as Exclude<K, "kind">]: T[K]
@@ -57,7 +58,7 @@ type RemoveKindField<T> = {
 
 // 传入类型键名首字母大写，前面加get
 type Getters<T> = {
-    [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K]
+    [K in keyof T  as `get${Capitalize<string & K>}`]: () => T[K]
 };
 
 interface Person {
@@ -96,3 +97,4 @@ deepFlatten([[1], [[2]], [[[3]]]]);
 
 [typescript基础](https://jkchao.github.io/typescript-book-chinese/project/compilationContext.html)
 [4.1](https://juejin.cn/post/6929085414649102343)
+[ts 版本](https://github.com/any86/ts-log-cn)
