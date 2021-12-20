@@ -30,3 +30,6 @@
 Vue依然会定位简单易上手（渐进式开发），依然是考虑通过依赖收集来实现数据可变。这点从Vue3核心更新内容可以看到：template语法基本不变、options api只增加了setup选项（composition api）、基于依赖收集（Proxy）的数据可变
 
 React的函数式编程这个基本盘不会变。React核心思想，是把UI作为Basic Type，比如String、Array类型，然后经过render处理，转换为另外一个value（纯函数）。从React Hooks可以看出，React团队致力于组件函数式编程，（纯组件，无class组件），尽量减少副作用（减少this，this会引起副作用）。
+
+
+[https://juejin.cn/post/6844904158093377549]
