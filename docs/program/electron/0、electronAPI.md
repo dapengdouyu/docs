@@ -115,7 +115,7 @@ app.on("ready", () => {
 
 在控制台输入 `npm run start` ,出现如下的页面：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/de_9.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/de_9.png)
 
 ### 打开子窗口
 
@@ -147,7 +147,7 @@ btn.onclick = function(e) {
 ```
 
 把相关的 BrowserView 给注释掉，运行 `npm run start` ,会出现如下窗口：
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/de_10.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/de_10.png)
 
 # (七)父子窗口通信
 
@@ -211,7 +211,7 @@ btn.onclick = function(e) {
 ```
 
 在控制台上运行 `npm run start` ，出现的效果如图所示：
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/de_11.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/de_11.png)
 
 父窗口就这样愉快的接收到子窗口传过来的消息啦！
 
@@ -256,7 +256,7 @@ index.html 文件 注意的是 `dialog.showOpenDialog()`
 
 `npm run start` ,运行出来的结果图片如图所示：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d_12.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d_12.png)
 
 另：index.html 文件
 
@@ -286,7 +286,7 @@ index.html 文件 注意的是 `dialog.showOpenDialog()`
 
 运行 `npm run strat` ,出现的效果如图所示：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d_13.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d_13.png)
 
 另：index.html 文件
 
@@ -333,11 +333,11 @@ index.html 文件 注意的是 `dialog.showOpenDialog()`
 
 运行 `npm run start` ,出现的图片如下图：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d14.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d14.png)
 
 选择几个文件，点击 `确认与否`
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d15.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d15.png)
 
 ### 保存对话框
 
@@ -377,11 +377,11 @@ index.html 文件 注意的是： `dialog.showSaveDialog()`
 
 运行 `npm run start` ,出现的图片如下图：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d-16.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d-16.png)
 
 在相应的文件上找：(我的是 D:\imgs)会出现：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d_17.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d_17.png)
 
 ### 消息对话框
 
@@ -419,11 +419,11 @@ index.html 文件 注意的是： `dialog.showMessageBox()`  `showMessageBox()
 
 运行 `npm run start` ,出现的图片如下图：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d18.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d18.png)
 
 打开 electron 页面的控制台
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d19.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d19.png)
 
 # （九）断网提醒
 
@@ -455,11 +455,11 @@ index.html 文件
 
 运行 `npm run start` 后,手动断网，出现的图片如下图：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/de_20.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/de_20.png)
 
 点击确定后，手动连接网络后，出现如下图片：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/de_21.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/de_21.png)
 
 # （十）底部消息通知
 
@@ -491,7 +491,7 @@ index.html 文件
 
 运行 `npm run start` ,出现页面如图所示：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d22.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d22.png)
 
 # （十一）快捷键
 
@@ -549,7 +549,7 @@ index.html 文件
 
 `npm run start`  运行后，可以使用 `ctrl+y` , `ctrl+z`  快捷键操作 electron 页面，成功如图所示：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d23.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d23.png)
 
 要是你不清楚全局快捷键是否注册过，可以通过`globalShortcut.isRegistered()`判断全局快捷键是否注册过。
 
@@ -711,7 +711,7 @@ index.html 文件
 
 运行 `npm run start` ,页面结果如图所示：
 
-<img src="http://img.zhangyapeng.club/electron/0.electronAPI/d24.png" alt="electron/0.electronAPI" style="zoom:100%;" />
+![electron/0.electronAPI](http://img.zhangyapeng.club/electron/0.electronAPI/d24.png)
 
 # 小小总结
 

@@ -39,7 +39,7 @@ fetch("http://www.xxx.com")
 ```
 
 `Fetch API` 提供了一个全局的 `fetch()`方法，以及几个辅助对象来发起一个网络请求。
-<img src="http://img.zhangyapeng.club/network/0.Fetch/wlqq_4.png" alt="network/0.Fetch" style="zoom:100%;" />
+![network/0.Fetch](http://img.zhangyapeng.club/network/0.Fetch/wlqq_4.png)
 
 ## `Fetch API`基本方法
 
@@ -70,13 +70,13 @@ myHeaders.append("Content-Type", "text/plain");
 
 ### 代码结构
 
-<img src="http://img.zhangyapeng.club/network/0.Fetch/wlqq_5.png" alt="network/0.Fetch" style="zoom:100%;" />
+![network/0.Fetch](http://img.zhangyapeng.club/network/0.Fetch/wlqq_5.png)
 
 由代码可见，`polyfill`主要对`Fetch API`提供的四大对象进行了封装：
 
 ### fetch 封装
 
-<img src="http://img.zhangyapeng.club/network/0.Fetch/wlqq_6.png" alt="network/0.Fetch" style="zoom:100%;" />
+![network/0.Fetch](http://img.zhangyapeng.club/network/0.Fetch/wlqq_6.png)
 
 代码非常清晰：
 
@@ -88,7 +88,7 @@ myHeaders.append("Content-Type", "text/plain");
 
 ### 异常处理
 
-<img src="http://img.zhangyapeng.club/network/0.Fetch/wlqq_7.png" alt="network/0.Fetch" style="zoom:100%;" />
+![network/0.Fetch](http://img.zhangyapeng.club/network/0.Fetch/wlqq_7.png)
 可以发现，调用`reject`有三种可能：
 
 1. 请求超时
@@ -107,19 +107,19 @@ myHeaders.append("Content-Type", "text/plain");
 
 ### Headers 封装
 
-<img src="http://img.zhangyapeng.club/network/0.Fetch/wlqq_8.png" alt="network/0.Fetch" style="zoom:100%;" />
+![network/0.Fetch](http://img.zhangyapeng.club/network/0.Fetch/wlqq_8.png)
 
 在`header`对象中维护了一个`map`对象，构造函数中可以传入`Header`对象、数组、普通对象类型的`header`，并将所有的值维护到 `map`中。
 
 之前在 `fetch` 函数中看到调用了 `header` 的`forEach` 方法，下面是它的实现：
-<img src="http://img.zhangyapeng.club/network/0.Fetch/wlqq_9.png" alt="network/0.Fetch" style="zoom:100%;" />
+![network/0.Fetch](http://img.zhangyapeng.club/network/0.Fetch/wlqq_9.png)
 可见 `header` 的遍历即其内部 `map` 的遍历。
 
 另外 `Header` 还提供了 `append`、`delete`、`get`、`set` 等方法，都是对其内部的 `map` 对象进行操作。
 
 ### Request 对象
 
-<img src="http://img.zhangyapeng.club/network/0.Fetch/wlqq_10.png" alt="network/0.Fetch" style="zoom:100%;" />
+![network/0.Fetch](http://img.zhangyapeng.club/network/0.Fetch/wlqq_10.png)
 
 `Request`对象接收的两个参数即`fetch`函数接收的两个参数，第一个参数可以直接传递`url`，也可以传递一个构造好的`request对象`。第二个参数即控制不同配置的`option对象`。
 

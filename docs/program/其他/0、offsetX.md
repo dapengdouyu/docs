@@ -1,6 +1,7 @@
 # offest
 
-<img src="http://img.zhangyapeng.club/其他/0.offsetX/169dd79558ce2af9_看图王.png" alt="其他/0.offsetX" style="zoom:100%;" />
+!['0.offsetX'](http://img.zhangyapeng.club/其他/0.offsetX/169dd79558ce2af9_看图王.png)
+
 
 > - clientWidth:`内容的宽度`+`padding`的宽度
 > - offsetWidth:`内容的宽度`+`padding`的宽度+`border`的宽度
@@ -13,7 +14,8 @@ offsetWidth = clientWidth + border - left + border - right;
 ## scrollWidth
 
 > 元素的`内容区域宽度`或`元素的本身的宽度`中更大的那个值
-> <img src="http://img.zhangyapeng.club/其他/0.offsetX/bg20090914.png" alt="其他/0.offsetX" style="zoom:100%;" />
+!['0.offsetX'](http://img.zhangyapeng.club/其他/0.offsetX/bg20090914.png)
+
 
 > scrollWidth =当前的元素`padding-left` +子元素的`内容宽度` +`padding的宽度`+`margin的宽度`;
 
