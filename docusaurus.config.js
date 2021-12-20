@@ -72,7 +72,7 @@ module.exports = {
           items: [
             {
               label: "Javascript",
-              to: "docs/program/javascript/index",
+              to: "docs/program/javascript",
             },
           ],
         },
@@ -82,7 +82,7 @@ module.exports = {
           items: [
             {
               label: "Babel 插件通关秘籍",
-              to: "docs/books/Babel 插件通关秘籍/index",
+              to: "docs/books/Babel 插件通关秘籍",
             },
           ],
         },
