@@ -23,7 +23,7 @@ get(country).xxx.yyy.zzz(); //undefined
 
 Proxy 一般是用来架设在目标对象之上的一层拦截，来实现对目标对象访问和修改的控制。Proxy 是一个构造函数，使用的时候需要配合`new`操作符，直接调用会报错。
 
-!['proxy报错信息'](/proxy/error.png)
+!['proxy报错信息'](/img/proxy/error.png)
 
 Proxy 构造函数接收两个参数
 
@@ -49,7 +49,7 @@ proxy.name; // 'name is tom'
 ```
 
 Proxy 支持 13 种拦截操作，本文将会重点介绍其中四种。
-![proxy13种拦截操作](/proxy/proxy.png)
+![proxy13种拦截操作](/img/proxy/proxy.png)
 
 - get(target, prop, receiver)：拦截对象属性的访问。
 - set(target, prop, value, receiver)：拦截对象属性的设置，最后返回一个`布尔值`。
@@ -68,7 +68,7 @@ Proxy 支持 13 种拦截操作，本文将会重点介绍其中四种。
 ## Proxy vs Object.defineProperty
 
 在 `Proxy` 出现之前，JavaScript 中就提供过 `Object.defineProperty`，允许对对象的 `getter/setter` 进行拦截，那么两者的区别在哪里呢？
-![proxy区别](/proxy/proxyVsdes.jpg)
+![proxy区别](/img/proxy/proxyVsdes.jpg)
 
 ### `Object.defineProperty` 不能监听所有属性
 
@@ -847,7 +847,7 @@ this.get = get;
 ### 管道
 
 在最新的 ECMA 提案中，出现了原生的管道操作符 |>，在 RxJS 和 NodeJS 中都有类似的 pipe 概念。
-![管道](/proxy/pipe.webp)
+![管道](/img/proxy/pipe.webp)
 
 使用 `Proxy`也可以实现`pipe` 功能，只要使用`get` 对属性访问进行拦截就能轻易实现，将访问的方法都放到 `stack` 数组里面，一旦最后访问了`execute` 就返回结果。
 

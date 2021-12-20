@@ -3,7 +3,7 @@
 ## 1.什么是 Webpack？
 
 webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler),当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle
-![](/webpack/webpack1.png)
+![](/img/webpack/webpack1.png)
 
 使用 Webpack 作为前端构建工具：
 
@@ -64,7 +64,7 @@ npm install webpack webpack-cli --save-dev
 
 > 这里也可以使用`npx webpack`,`npx` 是 5.2 版本之后`npm`提供的命令可以执行`.bin`下的可执行文件
 
-![](/webpack/webpack2.png)
+![](/img/webpack/webpack2.png)
 
 我们可以发现已经产生了`dist`目录，此目录为最终打包出的结果。`main.js`可以在 html 中直接引用,这里还提示我们默认`mode` 为`production`
 
@@ -196,7 +196,7 @@ npm install webpack-dev-server --save-dev
 
 通过执行`npm run dev`来启启动开发环境
 
-![](/webpack/webpack3.png)
+![](/img/webpack/webpack3.png)
 
 默认会在当前根目录下启动服务
 

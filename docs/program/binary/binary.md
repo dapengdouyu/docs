@@ -1,6 +1,6 @@
 # 二进制的应用
 
-![二进制](/buffer/binary.png)
+![二进制](/img/buffer/binary.png)
 
 ## ArrayBuffer
 
@@ -9,7 +9,7 @@
 - 你不能直接操作 `ArrayBuffer` 的内容，而是要通过`类型数组对象`或 `DataView` 对象来操作，它们会将缓冲区中的数据表示为特定的格式，并通过这些格式来读写缓冲区的内容。
 - 代表内存之中的一段二进制数据，可以通过`视图`进行操作。`视图`部署了`数组`接口，这意味着，可以用数组的方法操作内存。
 
-![](/buffer/bytearray.jpg)
+![](/img/buffer/bytearray.jpg)
 
 ```js
 //创建一个长度为 8 个字节的 buffer
@@ -34,7 +34,7 @@ TypedArray 视图一共包括 [9](https://es6.ruanyifeng.com/#docs/arraybuffer) 
 | Int16Array  | -32768 to 32767  | 2           | 16 位二进制有符号整数 |
 | Uint16Array | 0 to 65535       | 2           | 16 位无符号整数       |
 
-![TypedArray](/public/buffer/TypedArray.jpg)
+![TypedArray](/img/buffer/TypedArray.jpg)
 
 ```js
 const buffer = new ArrayBuffer(8);

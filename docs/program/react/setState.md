@@ -166,7 +166,7 @@ class Counter extends Component {
 ## setState 可能是异步的
 
 - [setState 源码](https://github.com/facebook/react/blob/35962a00084382b49d1f9e3bd36612925f360e5b/src/renderers/shared/reconciler/ReactUpdates.js#L199)
-- ![setState](/setState.png)
+- ![setState](/img/react/setState.png)
 
 ### index.html
 

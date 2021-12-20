@@ -114,7 +114,7 @@ module.exports = {
         //   ],
         // },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} dapeng (张亚鹏) 京ICP备20028300号`,
+      copyright: `Copyright © ${new Date().getFullYear()} dapeng (张亚鹏)  <a href="https://beian.miit.gov.cn/#/Integrated/index">京ICP备20028300号</a>`,
     },
     prism: {
       theme: require("prism-react-renderer/themes/github"),

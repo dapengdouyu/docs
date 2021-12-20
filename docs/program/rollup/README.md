@@ -8,7 +8,7 @@
 
 ## rollup.js 的工作原理
 
-rollup.js 可以将我们自己编写的 Javascript 代码（通过插件可以支持更多语言，如 Tyepscript）与第三方模块打包在一起，形成一个文件，该文件可以是一个库（Library）或者一个应用（App），在打包过程中可以应用各类插件实现特定功能。下图揭示了 rollup.js 的运行机制：![v2-91cc68862c6f239725e27bccccdac7d1_b](/rollup/v2-91cc68862c6f239725e27bccccdac7d1_b.png)
+rollup.js 可以将我们自己编写的 Javascript 代码（通过插件可以支持更多语言，如 Tyepscript）与第三方模块打包在一起，形成一个文件，该文件可以是一个库（Library）或者一个应用（App），在打包过程中可以应用各类插件实现特定功能。下图揭示了 rollup.js 的运行机制：![v2-91cc68862c6f239725e27bccccdac7d1_b](/img/rollup/v2-91cc68862c6f239725e27bccccdac7d1_b.png)
 
 rollup.js 默认采用 ES 模块标准，我们可以通过**rollup-plugin-commonjs**插件使之支持**CommonJS**标准。
 

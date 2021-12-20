@@ -839,7 +839,7 @@ it.next(300);
 it.throw("error"); //会执行catch中错误的
 ```
 
-![generator执行](/generator.png)
+![generator执行](/img/generator.png)
 
 ### co 的实现
 

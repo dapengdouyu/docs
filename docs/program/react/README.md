@@ -1053,7 +1053,7 @@ const TextInput = forwardRef((props, ref) => <input ref={ref} />);
 
 ### 旧版生命周期
 
-![react15](/react/react15.jpg)
+![react15](/img/react/react15.jpg)
 
 ```js
 import React, {
@@ -1153,7 +1153,7 @@ ReactDOM.render(<Counter />, document.getElementById("root"));
 
 ### 新版生命周期
 
-![react16](/react/react16.jpg)
+![react16](/img/react/react16.jpg)
 
 #### getDerivedStateFromProps
 

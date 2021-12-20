@@ -55,7 +55,7 @@ Blob 对象拥有 2 个属性：
 
 
 >由于 Blob 对象是不可改变的，但我们可以进行分割，并组装成一个新的 Blob 对象：
-```js
+```ts
 async function fn() {
   let blob1 = new Blob(["<html><h2>Hello Leo</h2></html>"], {
     type: "text/html",
@@ -69,9 +69,11 @@ async function fn() {
   let slice2 = blob2.slice(0, 16);
 
   await slice1.text();
-  // currtent slice1 value: "Leo</h2></html>"
+
+  // currtent slice1 value: `Leo<h2></html>`
+
   await slice2.text();
-  // currtent slice2 value: "<html><h2>Happy "
+  // currtent slice2 value: `<html><h2>Happy`
 
   let newBlob = new Blob([slice2, slice1], {
     type: "text/html",
@@ -444,7 +446,7 @@ function GET(url, callback) {
 Blob URL 格式如 `blob:域名/uuid` ， Data URL 格式如： `data:[<mediatype>][;base64],<data>`  。
 mediatype 是个 MIME 类型的字符串，例如 `"image/jpeg"` 表示 JPEG 图像文件。如果被省略，则默认值为 `text/plain;charset=US-ASCII`。
 
-!['blob'](/buffer/blob.png)
+!['blob'](/img/buffer/blob.png)
 
 #### 长度不同
 `Blob URL` 一般长度较短，而 `Data URL` 因为直接存储图片 `base64` 编码后的数据，往往比较长。

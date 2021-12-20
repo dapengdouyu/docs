@@ -12,4 +12,4 @@ event loop 里面有维护了两个不同的异步任务队列 macroTasks(Tasks)
 
 > 微任务 会比宏任务快，js 中会先执行 script 脚本
 
-![eventLoop](eventLoop.jpg)
+![eventLoop](/img/eventLoop.jpg)
